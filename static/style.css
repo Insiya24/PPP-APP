@@ -1,0 +1,128 @@
+:root {
+    --falcon-blue: #1a3fa0;
+    --falcon-blue-dark: #10276b;
+    --falcon-gold: #d4a017;
+    --border: #d7dbe3;
+    --text-muted: #4a4a4a;
+    --bg: #f7f8fa;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 48px 24px;
+    background: var(--bg);
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+    color: #1c1c1c;
+}
+
+.card {
+    max-width: 640px;
+    margin: 0 auto;
+}
+
+h1 {
+    color: var(--falcon-blue);
+    font-size: 2.25rem;
+    font-weight: 700;
+    margin: 0 0 8px;
+}
+
+h1 .tagline {
+    color: var(--falcon-gold);
+    font-size: 1.25rem;
+    font-weight: 500;
+}
+
+.subtitle {
+    color: var(--falcon-blue);
+    font-size: 1.05rem;
+    font-weight: 500;
+    margin: 0 0 32px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-size: 0.95rem;
+    font-weight: 500;
+    margin: 20px 0 8px;
+    color: #1c1c1c;
+}
+
+select,
+input[type="text"] {
+    width: 100%;
+    padding: 12px 14px;
+    font-size: 1rem;
+    font-family: inherit;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    background: #ffffff;
+    color: #1c1c1c;
+}
+
+select:focus,
+input[type="text"]:focus {
+    outline: none;
+    border-color: var(--falcon-blue);
+    box-shadow: 0 0 0 3px rgba(26, 63, 160, 0.12);
+}
+
+#calculate-btn {
+    margin-top: 24px;
+    padding: 12px 20px;
+    font-size: 1rem;
+    font-weight: 600;
+    font-family: inherit;
+    color: #ffffff;
+    background: var(--falcon-blue);
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.15s ease;
+}
+
+#calculate-btn:hover:not(:disabled) {
+    background: var(--falcon-blue-dark);
+}
+
+#calculate-btn:disabled {
+    background: #93a2c9;
+    cursor: not-allowed;
+}
+
+#output {
+    background: #eef0f4;
+    color: #1c1c1c;
+    cursor: default;
+}
+
+.summary {
+    margin-top: 24px;
+    padding: 18px 20px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    background: #ffffff;
+    color: var(--text-muted);
+    line-height: 1.5;
+}
+
+.summary strong {
+    color: var(--falcon-blue-dark);
+}
+
+.error {
+    margin-top: 24px;
+    padding: 14px 18px;
+    border: 1px solid #e0a5a5;
+    border-radius: 6px;
+    background: #fdefef;
+    color: #9c2b2b;
+}

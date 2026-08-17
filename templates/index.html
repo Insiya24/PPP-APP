@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAWA — Salary Value Benchmark</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <main class="card">
+        <h1>SAWA <span class="tagline">— Salary Value Benchmark</span></h1>
+        <p class="subtitle">Convert your salary from one country to another using PPP</p>
+
+        <form id="ppp-form" novalidate>
+            <label for="source_country">Source Country</label>
+            <select id="source_country" name="source_country" required>
+                <option value="" disabled selected>Select a country</option>
+                {% for name in country_names %}
+                <option value="{{ name }}" {{ "selected" if name == "India" else "" }}>{{ name }}</option>
+                {% endfor %}
+            </select>
+
+            <label for="salary" id="salary-label">Salary in Local Currency</label>
+            <input type="text" id="salary" name="salary" inputmode="decimal" placeholder="e.g. 50000" required>
+
+            <label for="target_country">Target Country</label>
+            <select id="target_country" name="target_country" required>
+                <option value="" disabled selected>Select a country</option>
+                {% for name in country_names %}
+                <option value="{{ name }}" {{ "selected" if name == "Canada" else "" }}>{{ name }}</option>
+                {% endfor %}
+            </select>
+
+            <button type="submit" id="calculate-btn">Calculate</button>
+
+            <label for="output">Output</label>
+            <input type="text" id="output" readonly placeholder="Result appears here">
+
+            <div id="summary" class="summary" hidden></div>
+            <div id="error" class="error" hidden></div>
+        </form>
+    </main>
+
+    <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
