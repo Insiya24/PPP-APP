@@ -81,4 +81,9 @@ def api_convert():
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    import os
+
+    # Render (and most PaaS hosts) inject PORT and expect the app to bind
+    # 0.0.0.0; falling back to 5000/localhost keeps local dev unchanged.
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port)
